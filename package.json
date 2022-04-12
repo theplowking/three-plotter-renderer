@@ -18,6 +18,9 @@
     "three.js",
     "clipper"
   ],
+  "browserslist": [
+    "last 1 Chrome version"
+  ],
   "author": "Geoff Gaudreault",
   "license": "MIT",
   "bugs": {
@@ -26,11 +29,12 @@
   "homepage": "https://github.com/neurofuzzy/three-plotter-renderer#readme",
   "externals": "./externals.js",
   "devDependencies": {
+    "parcel": "^2.4.0",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-externals": "^0.5.1"
   },
   "dependencies": {
     "js-angusj-clipper": "^1.1.0",
-    "three": "^0.120.1"
+    "three": "^0.122.0"
   }
 }

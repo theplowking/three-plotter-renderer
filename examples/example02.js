@@ -1,3 +1,5 @@
+import * as THREE from "three";
+import { PlotterRenderer } from "../src/plotter-renderer.js";
 import { OrbitControls } from "../node_modules/three/examples/jsm/controls/OrbitControls.js";
 import { STLLoader } from "../node_modules/three/examples/jsm/loaders/STLLoader.js";
 
@@ -56,7 +58,7 @@ function init() {
   camera.position.set(900, 900, 900);
 
   // RENDERER
-  renderer = new THREE.PlotterRenderer();
+  renderer = new PlotterRenderer();
 
   renderer.setSize(canvasWidth, canvasHeight);
   container.appendChild(renderer.domElement);

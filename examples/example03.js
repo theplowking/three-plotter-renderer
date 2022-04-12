@@ -1,3 +1,6 @@
+import * as THREE from "three";
+import { PlotterRenderer } from "../src/plotter-renderer.js";
+
 import { OrbitControls } from "../node_modules/three/examples/jsm/controls/OrbitControls.js";
 import { STLLoader } from "../node_modules/three/examples/jsm/loaders/STLLoader.js";
 
@@ -57,7 +60,7 @@ function init() {
 
   // RENDERER
   //renderer = new THREE.WebGLRenderer();
-  renderer = new THREE.PlotterRenderer();
+  renderer = new PlotterRenderer();
 
   renderer.setSize(canvasWidth, canvasHeight);
   container.appendChild(renderer.domElement);
@@ -68,6 +71,7 @@ function init() {
   // CONTROLS
   // @ts-ignore
   cameraControls = new OrbitControls(camera, view);
+  camera.position.set(6, 6, 6);
   cameraControls.zoomSpeed = 2;
 
   // scene itself
@@ -79,17 +83,17 @@ function init() {
 
   scene.add(dirLight);
 
-  const dirLight2 = new THREE.DirectionalLight(0x333333, 0.75);
-  dirLight2.position.set(-100, 300, -500);
+  // const dirLight2 = new THREE.DirectionalLight(0x333333, 0.75);
+  // dirLight2.position.set(-100, 300, -500);
 
-  scene.add(dirLight2);
+  // scene.add(dirLight2);
 
-  const light = new THREE.PointLight(0xffffff, 1.0, 5000);
-  light.position.x = 300;
-  light.position.z = 600;
-  light.position.y = 1000;
+  // const light = new THREE.PointLight(0xffffff, 1.0, 5000);
+  // light.position.x = 300;
+  // light.position.z = 600;
+  // light.position.y = 1000;
 
-  camera.add(light);
+  // camera.add(light);
 
   scene.add(camera);
 
@@ -97,7 +101,7 @@ function init() {
   setupGui();
   
   var loader = new STLLoader()
-  loader.load("./models/example03.stl", function (bg) {
+  loader.load("./models/townvvvbasic.stl", function (bg) {
     let geom = new THREE.Geometry().fromBufferGeometry(bg);
     let obj = new THREE.Mesh(geom, new THREE.MeshPhongMaterial())
     scene.add(obj);
